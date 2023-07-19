@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biểu đồ nhiệt độ và độ ẩm</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js" ></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+		h3  {
+      padding: 10px;
+			text-shadow: 2px 2px #ffff00;
+      margin-bottom: 5rem;
+		}
+    body{
+      background-image: url(OIP.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    container{
+   
+    padding: 1rem;
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #4a5789; /* thêm viền cho bảng */
+  }
+
+  th, td {
+    padding: 2px;
+    text-align: center;
+    border-bottom: 1px solid #4a5789;
+  }
+
+  th {
+    background-color: #4a5789;
+  }
+	</style>
+</head>
+
+<body>
+    <div class="container ">
+        <h3 class="text-center mb-3"> GIAO DIỆN ĐỘ ẨM - NHIỆT ĐỘ </h3>
+        <div class="content h-100 d-flex align-items-center justify-content-between">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                  <div class="card-body">
+                      <h6 class="card-title">Nhiệt độ và độ ẩm</h6>
+                      <canvas id="Chart"></canvas>
+                  </div>
+              </div>
+              <h2></h2>
+
+              <div class = "row">
+                <div class = "column" style = "float:left; width:50%;"> 
+                  <div class="card" style="background-color: #f1f1f1;">
+                    <div class="card-body text-center p-1 ">
+                      <h6 class="card-title" id = "tempdata_id"> Nhiệt độ: {{tempdata}}°C</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class = "column" style = "float:right; width:50%;"> 
+                  <div class="card" style="background-color: #f1f1f1;">                
+                    <div class="card-body text-center p-1 ">
+                      <h6 class="card-title" id = "humdata_id">Độ ẩm: {{humdata}}%</h6>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="card" style="background-color: #f1f1f1;">
+                <div class="card-body text-center p-2 ">
+                  <h6 class="card-title">Thoi gian cap nhat lan cuoi: 12:22:23 </h6>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <table  id = "table" border = "1">
+                <thead>
+                  <tr>
+                    <th>Thời gian</th>
+                    <th>Nhiệt độ (°C) </th>
+                    <th>Độ ẩm (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>12:17:25</td>
+                    <td>30</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>12:16:25</td>
+                    <td>30.5</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>12:15:25</td>
+                    <td>30</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:25</td>
+                    <td>31</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>12:13:25</td>
+                    <td>32</td>
+                    <td>20</td>
+                  </tr>
+                  <tr>
+                    <td>12:12:25</td>
+                    <td>31</td>
+                    <td>21</td>
+                  </tr>
+                  <tr>
+                    <td>12:11:25</td>
+                    <td>32</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>12:11:25</td>
+                    <td>32</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>12:11:25</td>
+                    <td>32</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>12:11:25</td>
+                    <td>32</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>12:11:25</td>
+                    <td>32</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>12:11:25</td>
+                    <td>32</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <td>12:11:25</td>
+                    <td>32</td>
+                    <td>22</td>
+                  </tr>
+                </tbody>
+              </table>
+             
+                </div>
+              </div>
+      <div class="card" style="background-color: #f2f2f2;"></div>
+    </div>
+    <script src="{{url_for('static', filename='javascript1.js')}}"></script>
+    
+    <h2></h2>
+</body>
+</html>
